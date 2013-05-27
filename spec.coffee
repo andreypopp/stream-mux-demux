@@ -73,3 +73,9 @@ describe 'stream-mux-demux', ->
       done() if seenA and seenB
     ba.write('x')
     bb.write('y')
+
+  it 'propagates "end" event', (done) ->
+
+    {a, aa} = s
+    aa.on 'end', -> done()
+    a.emit 'end'
