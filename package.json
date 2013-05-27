@@ -1,6 +1,6 @@
 {
   "name": "stream-mux-demux",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Multiplex-demultiplex object streams over object stream",
   "main": "lib/index.js",
   "dependencies": {
