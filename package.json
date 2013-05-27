@@ -1,0 +1,34 @@
+{
+  "name": "stream-mux-demux",
+  "version": "0.0.0",
+  "description": "Multiplex-demultiplex object streams over object stream",
+  "main": "lib/index.js",
+  "dependencies": {
+    "through": ""
+  },
+  "devDependencies": {
+    "coffee-script": "~1.6.x",
+    "mocha": "",
+    "semver": "",
+    "sphinx-npm": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/andreypopp/stream-mux-demux.git"
+  },
+  "homepage": "https://github.com/andreypopp/stream-mux-demux",
+  "keywords": [
+    "stream",
+    "streams",
+    "mux",
+    "demux",
+    "multiplex",
+    "demultiplex"
+  ],
+  "author": {
+    "name": "Andrey Popp",
+    "email": "8mayday@gmail.com",
+    "url": "http://andreypopp.com"
+  },
+  "license": "MIT"
+}
