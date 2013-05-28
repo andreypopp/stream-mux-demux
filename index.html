@@ -1,0 +1,55 @@
+<!doctype html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+<title>stream-mux-demux</title>
+<link rel="stylesheet" href="_static/default.css" type="text/css" />
+<script src="_static/jquery.js"></script>
+<script src="_static/jquery.lettering.js"></script>
+<script>
+  $(function() {
+    var $headers = $('h1');
+    $headers.lettering('words').children('span').lettering();
+    $headers.children('span').children('span:contains("¶")').remove();
+  });
+</script>
+<div class="main">
+  
+  <div class="section" id="stream-mux-demux">
+<h1>stream-mux-demux<a class="headerlink" href="#stream-mux-demux" title="Permalink to this headline">¶</a></h1>
+<p>Multiplex-demultiplex object streams over object stream</p>
+<p>To get started, install <tt class="docutils literal"><span class="pre">stream-mux-demux</span></tt> package via <tt class="docutils literal"><span class="pre">npm</span></tt>:</p>
+<div class="highlight-python"><pre>% npm install stream-mux-demux</pre>
+</div>
+<p>After that you will be able to use <tt class="docutils literal"><span class="pre">stream-rpc</span></tt> library in your code.  The
+basic usage example is as follows:</p>
+<div class="highlight-python"><pre>var muxdemux = require('stream-mux-demux');
+
+var server = muxdemux(),
+    client = muxdemux();
+
+server.pipe(client).pipe(server);
+
+var sEvents = server.createStream('events'),
+    cEvents = client.createStream('events');
+
+var sRPC = server.createStream('rpc'),
+    cRPC = client.createStream('rpc');</pre>
+</div>
+<p>Now <tt class="docutils literal"><span class="pre">sEvents</span></tt> communicates with <tt class="docutils literal"><span class="pre">cEvents</span></tt> and <tt class="docutils literal"><span class="pre">sRPC</span></tt> — with <tt class="docutils literal"><span class="pre">cRPC</span></tt> using
+<cite>server-client</cite> pipeline as a transport stream.</p>
+<p>Note that <tt class="docutils literal"><span class="pre">server</span></tt> and <tt class="docutils literal"><span class="pre">client</span></tt> streams are <cite>object</cite> streams, that means
+that for piping them over a network will require choosing a serialization
+protocol, something like
+<a class="reference external" href="https://github.com/dominictarr/stream-serializer">stream-serializer</a> could help
+there.</p>
+</div>
+
+
+  <footer>
+    <p>stream-mux-demux 0.1.1</p>
+    <p>Generated using Sphinx 1.2b1</p>
+  </footer>
+</div>
+</div>
+<a class="github-ribbon" href="https://github.com/andreypopp/stream-mux-demux">
+  <img src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
+</a>
