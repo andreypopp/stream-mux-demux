@@ -27,11 +27,16 @@ module.exports = (options = {}) ->
 
   s.streams = {}
 
+  s.on 'end', ->
+    for name, ss of s.streams
+      ss.emit 'end'
+
   s.createStream = (name) ->
     ss = s.streams[name] = through (obj) ->
       s.emit 'data', [name, obj]
 
-    s.on 'end', -> ss.emit 'end'
+    ss.on 'end', ->
+      s.streams[name] = undefined
 
     if options.error
       s.on 'error', -> ss.emit 'error'
