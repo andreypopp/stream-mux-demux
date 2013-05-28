@@ -22,3 +22,14 @@ basic usage example is as follows::
 
     var sRPC = server.createStream('rpc'),
         cRPC = client.createStream('rpc');
+
+Now ``sEvents`` communicates with ``cEvents`` and ``sRPC`` — with ``cRPC`` using
+`server-client` pipeline as a transport stream.
+
+Note that ``server`` and ``client`` streams are `object` streams, that means
+that for piping them over a network will require choosing a serialization
+protocol, something like
+stream-serializer_ could help
+there.
+
+.. _stream-serializer: https://github.com/dominictarr/stream-serializer
